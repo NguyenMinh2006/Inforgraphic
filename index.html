@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Infographic - Ban do so (theo mau)</title>
+<style>
+  @page { size: A3 portrait; margin: 0; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --navy:#0a2a6b; --blue:#1565d8; --blue2:#2f8bff; --gold:#ffd21f;
+    --green:#16a34a; --green2:#22c55e; --purple:#7c3aed; --purple2:#a855f7;
+    --orange:#f97316; --ink:#13233f; --muted:#5d6b82; --line:#dce6f5; --bg:#ffffff;
+  }
+  body{ font-family:"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .page{ width:297mm; min-height:420mm; padding:0; background:var(--bg); display:flex; flex-direction:column; }
+  .pad{ padding:6mm 8mm; }
+
+  /* ===== HEADER ===== */
+  .hero{ position:relative; overflow:hidden; color:#fff;
+         background:linear-gradient(120deg,var(--navy) 0%,var(--blue) 55%,var(--blue2) 100%);
+         padding:8mm 9mm 9mm; }
+  .hero .grid-bg{ position:absolute; inset:0; opacity:.18;
+         background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+         background-size:14mm 14mm; mask-image:linear-gradient(90deg,#000,transparent 60%); }
+  .hero .tag{ position:relative; display:inline-block; background:rgba(255,255,255,.16);
+         border:1px solid rgba(255,255,255,.4); font-size:9.5pt; font-weight:700; letter-spacing:.4px;
+         padding:1.5mm 3.5mm; border-radius:99px; }
+  .hero-row{ position:relative; display:grid; grid-template-columns:1.25fr .75fr; gap:5mm; align-items:center; margin-top:3mm; }
+  .hero h1{ font-size:34pt; line-height:.98; font-weight:900; color:var(--gold);
+            text-shadow:0 2px 0 rgba(0,0,0,.18); letter-spacing:.5px; }
+  .hero h2{ font-size:17pt; font-weight:800; font-style:italic; margin-top:2mm; }
+  .hero .sub{ display:inline-block; margin-top:3mm; background:var(--gold); color:var(--navy);
+            font-weight:800; font-size:11.5pt; padding:2mm 4mm; border-radius:3mm; transform:rotate(-1deg); }
+  .hero .pins{ display:flex; flex-wrap:wrap; gap:2mm; margin-top:3mm; }
+  .pin{ display:flex; align-items:center; gap:1.5mm; background:rgba(255,255,255,.14);
+        border:1px solid rgba(255,255,255,.35); border-radius:99px; padding:1mm 2.5mm; font-size:9pt; font-weight:700; }
+  .pin i{ width:5mm; height:5mm; border-radius:50%; display:grid; place-items:center; font-size:9pt; font-style:normal; }
+  .hero-art{ position:relative; display:grid; place-items:center; }
+  .phone-big{ width:46mm; height:88mm; background:#0c1430; border-radius:7mm; padding:2.5mm;
+              box-shadow:0 6mm 12mm rgba(0,0,0,.35); position:relative; }
+  .phone-big .notch{ position:absolute; top:2.5mm; left:50%; transform:translateX(-50%);
+              width:14mm; height:3mm; background:#0c1430; border-radius:0 0 2mm 2mm; z-index:3; }
+  .phone-big .scr{ width:100%; height:100%; border-radius:5mm; overflow:hidden; background:#eaf1fb; position:relative; }
+  .ph-label{ position:absolute; background:#fff; color:var(--navy); font-weight:800; font-size:8.5pt;
+              padding:1mm 2.5mm; border-radius:2mm; box-shadow:0 1mm 3mm rgba(0,0,0,.2); }
+  .ph-label.tl{ top:6mm; left:-6mm; } .ph-label.br{ bottom:10mm; right:-7mm; }
+  .illus-ph{ position:absolute; bottom:-2mm; right:-2mm; width:34mm; height:42mm; border:2px dashed #ff5a5a;
+              border-radius:3mm; background:rgba(255,90,90,.08); display:grid; place-items:center;
+              color:#c0392b; font-size:8pt; font-weight:700; text-align:center; padding:2mm; }
+
+  /* ===== SECTION HEAD ===== */
+  .sec{ margin-top:5mm; }
+  .sec-h{ display:flex; align-items:center; gap:3mm; color:#fff; font-weight:800; font-size:13.5pt;
+          padding:2.5mm 4mm; border-radius:3mm 3mm 0 0; }
+  .sec-h .num{ width:7mm; height:7mm; border-radius:50%; background:rgba(255,255,255,.25);
+          border:1.5px solid #fff; display:grid; place-items:center; font-size:11pt; }
+  .h-blue{ background:linear-gradient(90deg,var(--blue),var(--blue2)); }
+  .h-green{ background:linear-gradient(90deg,var(--green),var(--green2)); }
+  .h-purple{ background:linear-gradient(90deg,var(--purple),var(--purple2)); }
+  .sec-body{ border:1px solid var(--line); border-top:none; border-radius:0 0 3mm 3mm; background:#f7fbff; padding:4mm; }
+
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:5mm; align-items:start; }
+
+  /* P1 */
+  .p1-grid{ display:grid; grid-template-columns:38mm 1fr; gap:4mm; align-items:center; }
+  .map-fold{ width:38mm; height:30mm; }
+  .p1-txt{ font-size:10.5pt; line-height:1.5; }
+  .p1-txt b{ color:var(--blue); }
+  .p1-txt em{ color:var(--muted); font-style:italic; }
+
+  /* P2 list icon tron */
+  .use-list{ display:grid; gap:2.5mm; }
+  .use{ display:flex; gap:3mm; align-items:flex-start; background:#fff; border:1px solid var(--line);
+        border-radius:3mm; padding:2.5mm 3mm; }
+  .use .ic{ flex:none; width:9mm; height:9mm; border-radius:50%; display:grid; place-items:center;
+        font-size:14pt; color:#fff; box-shadow:0 1mm 2mm rgba(0,0,0,.12); }
+  .use t{ font-size:10.5pt; font-weight:800; color:var(--navy); display:block; }
+  .use s{ font-size:9pt; color:var(--muted); text-decoration:none; }
+
+  /* P3 mockup flow */
+  .flow{ display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; gap:2mm; align-items:center; }
+  .step{ text-align:center; }
+  .mini-phone{ width:100%; max-width:30mm; aspect-ratio:9/16; margin:0 auto; background:#0c1430;
+        border-radius:4mm; padding:1.5mm; box-shadow:0 2mm 5mm rgba(0,0,0,.18); }
+  .mini-phone .mscr{ width:100%; height:100%; border-radius:3mm; background:#eaf1fb; position:relative;
+        display:grid; place-items:center; overflow:hidden; }
+  .mini-phone .mscr .bar{ position:absolute; top:2mm; left:2mm; right:2mm; height:4mm; background:#fff;
+        border-radius:2mm; box-shadow:0 .5mm 1mm rgba(0,0,0,.1); display:flex; align-items:center; padding:0 1.5mm;
+        font-size:6pt; color:var(--muted); }
+  .mini-phone .mscr .big{ font-size:20pt; }
+  .step .badge{ display:inline-grid; place-items:center; width:6mm; height:6mm; border-radius:50%;
+        background:var(--purple); color:#fff; font-weight:800; font-size:10pt; margin-top:1.5mm; }
+  .step t{ display:block; font-size:9pt; font-weight:700; color:var(--navy); margin-top:1mm; line-height:1.25; }
+  .step s{ display:block; font-size:7.5pt; color:var(--muted); text-decoration:none; }
+  .chev{ font-size:16pt; color:var(--orange); font-weight:900; }
+
+  /* P4 banner thong diep */
+  .msg{ margin-top:5mm; display:grid; grid-template-columns:1fr auto; gap:5mm; align-items:center;
+        background:linear-gradient(120deg,#064e3b,#16a34a); border-radius:4mm; padding:5mm 6mm; color:#fff; position:relative; overflow:hidden; }
+  .msg::before{ content:"💡"; position:absolute; left:4mm; top:50%; transform:translateY(-50%); font-size:30mm; opacity:.12; }
+  .msg .lead{ position:relative; }
+  .msg h3{ font-size:15pt; font-weight:900; line-height:1.2; }
+  .msg .gold{ display:inline-block; margin-top:2.5mm; background:var(--gold); color:var(--navy);
+        font-weight:800; font-style:italic; font-size:12pt; padding:2mm 4mm; border-radius:99px; }
+  .qr{ width:30mm; height:30mm; background:#fff; border-radius:3mm; display:grid; place-items:center;
+        color:var(--navy); font-weight:800; font-size:8pt; text-align:center; border:2px dashed #ff5a5a; }
+
+  /* FOOTER */
+  footer{ margin-top:auto; background:linear-gradient(120deg,var(--navy),var(--blue)); color:#fff;
+        padding:5mm 8mm; display:grid; grid-template-columns:1fr auto; gap:5mm; align-items:center; }
+  .pillars{ display:grid; grid-template-columns:repeat(3,auto); gap:6mm; }
+  .pillar{ display:flex; align-items:center; gap:2mm; font-size:9.5pt; font-weight:700; }
+  .pillar .pi{ width:7mm; height:7mm; border-radius:50%; background:rgba(255,255,255,.18);
+        border:1px solid rgba(255,255,255,.4); display:grid; place-items:center; font-size:11pt; }
+  .foot-right{ text-align:right; }
+  .foot-right .slog{ font-style:italic; font-weight:800; color:var(--gold); font-size:11pt; }
+  .src{ font-size:8pt; opacity:.8; margin-top:1mm; }
+
+  .ph-red{ outline:2px dashed #ff5a5a; outline-offset:1mm; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= HEADER ================= -->
+  <header class="hero">
+    <div class="grid-bg"></div>
+    <span class="tag">CHUYỂN ĐỔI SỐ VÌ NGƯỜI DÂN</span>
+    <div class="hero-row">
+      <div>
+        <h1>BẢN ĐỒ SỐ</h1>
+        <h2>Đi đâu cũng biết · Cần gì cũng tìm</h2>
+        <span class="sub">Tra cứu dễ dàng – Tiện ích mọi lúc – Hành chính nhanh chóng</span>
+        <div class="pins">
+          <span class="pin"><i style="background:#e23b3b">📍</i>Hành chính</span>
+          <span class="pin"><i style="background:#1565d8">🏥</i>Y tế</span>
+          <span class="pin"><i style="background:#7c3aed">🏫</i>Giáo dục</span>
+          <span class="pin"><i style="background:#16a34a">🚌</i>Giao thông</span>
+          <span class="pin"><i style="background:#f97316">📮</i>Bưu chính</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="phone-big">
+          <div class="notch"></div>
+          <div class="scr">
+            <svg viewBox="0 0 100 180" width="100%" height="100%">
+              <rect width="100" height="180" fill="#eaf1fb"/>
+              <path d="M0 50 H100 M0 110 H100 M35 0 V180 M70 0 V180" stroke="#cfe0f5" stroke-width="5"/>
+              <path d="M0 30 Q50 12 100 36" stroke="#bcd3f0" stroke-width="3" fill="none"/>
+              <g><path d="M50 60 c-9 0 -16 7 -16 16 c0 12 16 28 16 28 s16 -16 16 -28 c0 -9 -7 -16 -16 -16z" fill="#e23b3b"/><circle cx="50" cy="76" r="6" fill="#fff"/></g>
+              <circle cx="22" cy="135" r="5" fill="#1565d8"/><circle cx="80" cy="40" r="5" fill="#16a34a"/>
+            </svg>
+          </div>
+        </div>
+        <span class="ph-label tl">🚌 Giao thông</span>
+        <span class="ph-label br"> Giáo dục</span>
+        <div class="illus-ph">[CHÈN ẢNH MINH HỌA<br>NGƯỜI DÙNG / SKYLINE<br>tại đây]</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="pad" style="flex:1; display:flex; flex-direction:column;">
+
+    <!-- ===== HÀNG 1 : P1 + P2 ===== -->
+    <div class="two-col">
+      <!-- P1 -->
+      <section class="sec" style="margin-top:0;">
+        <div class="sec-h h-blue"><span class="num">1</span> BẢN ĐỒ SỐ LÀ GÌ?</div>
+        <div class="sec-body">
+          <div class="p1-grid">
+            <svg class="map-fold" viewBox="0 0 120 95">
+              <polygon points="5,20 40,5 80,20 115,5 115,75 80,90 40,75 5,90" fill="#dcebd6" stroke="#9bbf8e"/>
+              <polyline points="40,5 40,75" stroke="#9bbf8e" fill="none"/>
+              <polyline points="80,20 80,90" stroke="#9bbf8e" fill="none"/>
+              <path d="M10 50 Q40 35 70 55 T112 45" stroke="#7fb0e6" stroke-width="3" fill="none"/>
+              <g><path d="M60 30 c-6 0 -11 5 -11 11 c0 8 11 20 11 20 s11 -12 11 -20 c0 -6 -5 -11 -11 -11z" fill="#e23b3b"/><circle cx="60" cy="41" r="4" fill="#fff"/></g>
+            </svg>
+            <div class="p1-txt">
+              <b>Bản đồ số</b> là công cụ giúp <b>tìm kiếm, định vị, tra cứu thông tin và hỗ trợ di chuyển</b> trên nền tảng số (điện thoại, máy tính, internet).
+              <br><br><em>Chỉ vài thao tác, bạn thấy ngay mọi thông tin cần thiết về địa điểm, dịch vụ, tiện ích trên địa bàn.</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P2 -->
+      <section class="sec" style="margin-top:0;">
+        <div class="sec-h h-green"><span class="num">2</span> TÔI CÓ THỂ DÙNG ĐỂ LÀM GÌ?</div>
+        <div class="sec-body">
+          <div class="use-list">
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#e23b3b,#ff7a59)">📍</span><div><t>Tìm cơ quan hành chính</t><s>UBND, công an, một cửa…</s></div></div>
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#1565d8,#2f8bff)">🏥</span><div><t>Tìm cơ sở y tế</t><s>Bệnh viện, trạm y tế, nhà thuốc</s></div></div>
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">🏫</span><div><t>Tìm trường học</t><s>Mầm non, tiểu học, THCS, THPT</s></div></div>
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#16a34a,#22c55e)">🚌</span><div><t>Tìm tuyến giao thông</t><s>Xe buýt, tuyến đường, bến bãi</s></div></div>
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#f97316,#fb923c)">📮</span><div><t>Tìm điểm bưu chính</t><s>Bưu cục, điểm phát hàng</s></div></div>
+            <div class="use"><span class="ic" style="background:linear-gradient(135deg,#0d9488,#14b8a6)">🛒</span><div><t>Tìm địa điểm cần thiết</t><s>Chợ, siêu thị, nhà văn hóa…</s></div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== P3 : 4 BUOC ===== -->
+    <section class="sec">
+      <div class="sec-h h-purple"><span class="num">3</span> 4 BƯỚC SỬ DỤNG BẢN ĐỒ SỐ</div>
+      <div class="sec-body">
+        <div class="flow">
+          <div class="step">
+            <div class="mini-phone"><div class="mscr"><div class="bar">🔍 Tìm kiếm…</div><span class="big">📲</span></div></div>
+            <span class="badge">1</span><t>Mở</t><s>Ứng dụng / website bản đồ số</s>
+          </div>
+          <span class="chev">›</span>
+          <div class="step">
+            <div class="mini-phone"><div class="mscr"><div class="bar">📍 Địa điểm</div><span class="big">🔎</span></div></div>
+            <span class="badge">2</span><t>Tìm</t><s>Nhập tên hoặc chọn danh mục</s>
+          </div>
+          <span class="chev">›</span>
+          <div class="step">
+            <div class="mini-phone"><div class="mscr"><div class="bar">ℹ️ Thông tin</div><span class="big">🗂️</span></div></div>
+            <span class="badge">3</span><t>Xem thông tin</t><s>Địa chỉ, giờ mở cửa, liên hệ</s>
+          </div>
+          <span class="chev">›</span>
+          <div class="step">
+            <div class="mini-phone"><div class="mscr"><div class="bar">🧭 Đường đi</div><span class="big">🛣️</span></div></div>
+            <span class="badge">4</span><t>Chỉ đường</t><s>Lấy hướng dẫn di chuyển</s>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== P4 : THONG DIEP ===== -->
+    <section class="msg">
+      <div class="lead">
+        <h3>BIẾT DÙNG BẢN ĐỒ SỐ —<br>CHỦ ĐỘNG HƠN TRONG CUỘC SỐNG SỐ.</h3>
+        <span class="gold">Cùng chuyển đổi số vì một cộng đồng thông minh, hiện đại!</span>
+      </div>
+      <div class="qr">[DÁN QR<br>THẬT]<br><span style="font-weight:600;font-size:7pt">Quét để mở ngay</span></div>
+    </section>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="pillars">
+      <div class="pillar"><span class="pi">🌐</span>CÔNG NGHỆ KẾT NỐI</div>
+      <div class="pillar"><span class="pi">👥</span>NGƯỜI DÂN LÀ TRUNG TÂM</div>
+      <div class="pillar"><span class="pi">🌱</span>CHUYỂN ĐỔI SỐ KIẾN TẠO TƯƠNG LAI</div>
+    </div>
+    <div class="foot-right">
+      <div class="slog">[TÊN ĐƠN VỊ] — vươn tới tương lai số!</div>
+      <div class="src ph-red">Nguồn: [Điền cơ quan ban hành · năm] — thay placeholder đỏ trước khi in</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
